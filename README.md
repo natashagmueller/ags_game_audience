@@ -2,7 +2,7 @@ AGS Game Audience — Event-Driven + CDC Pipeline (Snowflake)
 
 ![Event-Driven + CDC pipeline](docs/etl_flow.png)
 
-##What this is
+## What this is
 
 A portfolio-ready, reproducible Snowflake pipeline that ingests JSON logs from an AWS S3 bucket using Snowpipe, lands them in RAW, captures changes with a Stream (CDC), and loads curated data into ENHANCED via a scheduled Task.
 
