@@ -1,0 +1,3 @@
+create or replace TABLE AGS_GAME_AUDIENCE.RAW.PL_GAME_LOGS (
+	RAW_LOG VARIANT
+);
