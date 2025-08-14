@@ -17,22 +17,22 @@ Stream (…RAW.ED_CDC_STREAM) tracks new/changed rows
 Task (e.g., …ENHANCED.CDC_LOAD_LOGS_ENHANCED) runs every few minutes to MERGE/UPSERT into …ENHANCED.LOGS_ENHANCED
 
 ##Repo layout (high-level)
-sql/␠␠
-  000_env.sql                      # role/warehouse/db (no schema set globally)␠␠
-  010_file_format_raw_ff_json_logs.sql␠␠
-  020_storage_integration_aws.sql  # S3 access (placeholders)␠␠
-  030_stage_raw_uni_kishore_pipeline.sql␠␠
-  040_table_ed_pipeline_logs.sql␠␠
-  041_table_logs_enhanced.sql␠␠
-  042_table_pl_game_logs.sql␠␠
-  043_table_time_of_day_lu.sql␠␠
-  050_view_pl_logs.sql␠␠
-  060_snowpipe_pipe_get_new_files.sql␠␠
-  070_stream_ed_cdc_stream.sql␠␠
-  080_task_cdc_load_logs_enhanced.sql␠␠
-driver.sql                         # runs files in order (SnowSQL)␠␠
-docs/etl_flow.png                  # the diagram above␠␠
-data/sample_files/                 # (optional) demo files for internal stage␠␠
+sql/<br>
+  000_env.sql                      # role/warehouse/db (no schema set globally)<br>
+  010_file_format_raw_ff_json_logs.sql␠<br>
+  020_storage_integration_aws.sql  # S3 access (placeholders)<br>
+  030_stage_raw_uni_kishore_pipeline.sql<br>
+  040_table_ed_pipeline_logs.sql<br>
+  041_table_logs_enhanced.sql<br>
+  042_table_pl_game_logs.sql<br>␠
+  043_table_time_of_day_lu.sql<br>
+  050_view_pl_logs.sql<br>
+  060_snowpipe_pipe_get_new_files.sql<br>
+  070_stream_ed_cdc_stream.sql<br>
+  080_task_cdc_load_logs_enhanced.sql<br>
+driver.sql                         # runs files in order (SnowSQL)<br>
+docs/etl_flow.png                  # the diagram above<br>
+data/sample_files/                 # (optional) demo files for internal stage<br>
 
 
 If your filenames differ, keep the same order. File order matters: file format → integrations → stage → tables → views → pipe → stream → task.
