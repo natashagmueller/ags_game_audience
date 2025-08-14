@@ -4,7 +4,7 @@
 
 ## What this is
 
-A portfolio-ready, reproducible Snowflake pipeline that ingests JSON logs from an AWS S3 bucket using Snowpipe, lands them in RAW, captures changes with a Stream (CDC), and loads curated data into ENHANCED via a scheduled Task. This reo was created based on the Snowflake hands-on lab badge 6 - Data Engineering.
+A portfolio-ready, reproducible Snowflake pipeline that ingests JSON logs from an AWS S3 bucket using Snowpipe, lands them in RAW, captures changes with a Stream (CDC), and loads curated data into ENHANCED via a scheduled Task. This repo was created based on the Snowflake hands-on lab badge 6 - Data Engineering.
 
 ## Key design:
 
