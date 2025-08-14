@@ -24,7 +24,7 @@ Task (e.g., …ENHANCED.CDC_LOAD_LOGS_ENHANCED) runs every few minutes to MERGE/
   - 030_stage_raw_uni_kishore_pipeline.sql<br>
   - 040_table_ed_pipeline_logs.sql<br>
   - 041_table_logs_enhanced.sql<br>
-  - 042_table_pl_game_logs.sql<br>␠
+  - 042_table_pl_game_logs.sql<br>
   - 043_table_time_of_day_lu.sql<br>
   - 050_view_pl_logs.sql<br>
   - 060_snowpipe_pipe_get_new_files.sql<br>
