@@ -1,3 +1,6 @@
+USE DATABASE AGS_GAME_AUDIENCE;
+USE SCHEMA RAW;
+
 create or replace pipe AGS_GAME_AUDIENCE.RAW.PIPE_GET_NEW_FILES auto_ingest=true aws_sns_topic='{{your aws account sns topic}}' as COPY INTO ED_PIPELINE_LOGS
 FROM (
     SELECT 
