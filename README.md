@@ -33,7 +33,9 @@ Task (e.g., …ENHANCED.CDC_LOAD_LOGS_ENHANCED) runs every few minutes to MERGE/
   - 070_stream_ed_cdc_stream.sql<br>
   - 080_task_cdc_load_logs_enhanced.sql<br>
 - driver.sql                         # runs files in order (SnowSQL)<br>
+- docs/database_structure_snowflake_ui.png  # the database structure in Snowflake UI <br>
 - docs/etl_flow.png                  # the diagram above<br>
+- docs/pipe_get_new_files_graph.png  # the pipe_get_new_files graph from Snowflake UI<br>
 
 If your filenames differ, keep the same order. File order matters: file format → integrations → stage → tables → views → pipe → stream → task.
 
