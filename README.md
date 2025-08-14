@@ -16,7 +16,7 @@ Stream (…RAW.ED_CDC_STREAM) tracks new/changed rows
 
 Task (e.g., …ENHANCED.CDC_LOAD_LOGS_ENHANCED) runs every few minutes to MERGE/UPSERT into …ENHANCED.LOGS_ENHANCED
 
-## Repo layout (high-level)<br><br>
+## Repo layout (high-level)
 sql/<br>
   000_env.sql                      # role/warehouse/db (no schema set globally)<br>
   010_file_format_raw_ff_json_logs.sql␠<br>
