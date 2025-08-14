@@ -1,6 +1,8 @@
 ## AGS Game Audience — Event-Driven + CDC Pipeline (Snowflake)
 
+![Event-Driven + CDC pipeline](docs/database_structure_snowflake_ui.png)
 ![Event-Driven + CDC pipeline](docs/etl_flow.png)
+![Event-Driven + CDC pipeline](docs/pipe_get_new_files_graph.png)
 
 ## What this is
 
