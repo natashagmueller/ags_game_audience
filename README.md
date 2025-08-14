@@ -1,4 +1,4 @@
-AGS Game Audience — Event-Driven + CDC Pipeline (Snowflake)
+## AGS Game Audience — Event-Driven + CDC Pipeline (Snowflake)
 
 ![Event-Driven + CDC pipeline](docs/etl_flow.png)
 
@@ -6,7 +6,7 @@ AGS Game Audience — Event-Driven + CDC Pipeline (Snowflake)
 
 A portfolio-ready, reproducible Snowflake pipeline that ingests JSON logs from an AWS S3 bucket using Snowpipe, lands them in RAW, captures changes with a Stream (CDC), and loads curated data into ENHANCED via a scheduled Task.
 
-**Key design:**
+## Key design:
 
 S3 → Stage (…RAW.UNI_KISHORE_PIPELINE)
 
@@ -16,7 +16,7 @@ Stream (…RAW.ED_CDC_STREAM) tracks new/changed rows
 
 Task (e.g., …ENHANCED.CDC_LOAD_LOGS_ENHANCED) runs every few minutes to MERGE/UPSERT into …ENHANCED.LOGS_ENHANCED
 
-##Repo layout (high-level)<br><br>
+## Repo layout (high-level)<br><br>
 sql/<br>
   000_env.sql                      # role/warehouse/db (no schema set globally)<br>
   010_file_format_raw_ff_json_logs.sql␠<br>
@@ -37,13 +37,13 @@ data/sample_files/                 # (optional) demo files for internal stage<br
 
 If your filenames differ, keep the same order. File order matters: file format → integrations → stage → tables → views → pipe → stream → task.
 
-**Prerequisites**
+## Prerequisites 
 
 A Snowflake account and SnowSQL (or run in Snowsight worksheets).
 
 Role with rights to create DB/objects in AGS_GAME_AUDIENCE.
 
-**For real S3 auto-ingest:**
+## For real S3 auto-ingest:
 
 An AWS IAM role that Snowflake can assume (used by the storage integration) with List/Get permissions to s3://{{bucket}}/{{prefix}}/.
 
@@ -51,7 +51,7 @@ An SNS topic wired to your S3 bucket events (Object Created) that the pipe will 
 
 For portfolio use, this repo uses placeholders like {{aws_role_arn}} and {{arn:aws:sns:…}}. Do not commit real ARNs/IDs.
 
-**Quickstart**
+## Quickstart 
 0) Clone & open
 git clone https://github.com/natashagmueller/ags_game_audience.git
 cd ags_game_audience
@@ -92,7 +92,7 @@ Put a few JSON files in s3://{{bucket}}/{{prefix}}/.
 
 4) Verify ingestion
 
-Some handy checks:
+## Some handy checks:
 
 -- Is the pipe healthy?
 SELECT SYSTEM$PIPE_STATUS('AGS_GAME_AUDIENCE.RAW.PIPE_GET_NEW_FILES');
@@ -106,7 +106,7 @@ SELECT * FROM AGS_GAME_AUDIENCE.RAW.ED_CDC_STREAM LIMIT 20;
 -- Curated output
 SELECT * FROM AGS_GAME_AUDIENCE.ENHANCED.LOGS_ENHANCED ORDER BY event_time DESC LIMIT 20;
 
-**No-AWS demo option (optional)**
+## No-AWS demo option (optional) 
 
 If you (or reviewers) want to test without S3:
 
@@ -125,7 +125,7 @@ Backfill once:
 
 ALTER PIPE AGS_GAME_AUDIENCE.RAW.PIPE_GET_NEW_FILES REFRESH;
 
-Important files & objects (mapping)
+## Important files & objects (mapping)
 
 File format: AGS_GAME_AUDIENCE.RAW.FF_JSON_LOGS
 Parses JSON logs; referenced by stage/pipe.
@@ -163,7 +163,7 @@ ALTER PIPE AGS_GAME_AUDIENCE.RAW.PIPE_GET_NEW_FILES REFRESH;
 ALTER TASK AGS_GAME_AUDIENCE.ENHANCED.CDC_LOAD_LOGS_ENHANCED SUSPEND;
 ALTER TASK AGS_GAME_AUDIENCE.ENHANCED.CDC_LOAD_LOGS_ENHANCED RESUME;
 
-**Security & secrets**
+## Security & secrets
 
 Never commit real ARNs, account IDs, or credentials. Use placeholders ({{…}}) and document them here.
 
